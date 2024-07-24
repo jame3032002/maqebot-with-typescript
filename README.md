@@ -3,7 +3,7 @@
 ## Quick Start
 
 ```sh
-git clone git@github.com:jame3032002/maqebot-typescript.git
+git clone git@github.com:jame3032002/maqebot-with-typescript.git
 ```
 
 ## Installation
