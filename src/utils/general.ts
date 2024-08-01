@@ -14,16 +14,19 @@ function calculateDistance({ distance }: { distance: number[] }): number {
 function updateRobotAxis({
   distance,
   maqeBot,
+  isBack,
 }: {
   distance: number[];
   maqeBot: RobotI;
+  isBack: Boolean;
 }) {
   const newMaqeBot: RobotI = JSON.parse(JSON.stringify(maqeBot));
+  const backFactor = isBack ? -1 : 1;
 
   if (distance.length > 0) {
     const totalDistance = calculateDistance({ distance });
     const { axis, factor } = FORMULAR[newMaqeBot.direction];
-    newMaqeBot[axis] += totalDistance * factor;
+    newMaqeBot[axis] += totalDistance * factor * backFactor;
   }
 
   return newMaqeBot;

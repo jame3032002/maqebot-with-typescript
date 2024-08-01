@@ -67,7 +67,11 @@ function start({
           prevCommand = cmd;
           distance = [];
         } else if (isPreviousWalkCommand || isPreviousBackCommand) {
-          newMaqeBot = updateRobotAxis({ maqeBot: newMaqeBot, distance });
+          newMaqeBot = updateRobotAxis({
+            maqeBot: newMaqeBot,
+            distance,
+            isBack: isPreviousBackCommand,
+          });
           prevCommand = cmd;
           distance = [];
         }
@@ -97,7 +101,11 @@ function start({
               textCommand: commandProcess,
             });
           } else if (isPreviousWalkCommand || isPreviousBackCommand) {
-            newMaqeBot = updateRobotAxis({ maqeBot: newMaqeBot, distance });
+            newMaqeBot = updateRobotAxis({
+              maqeBot: newMaqeBot,
+              distance,
+              isBack: isPreviousBackCommand,
+            });
           }
         }
       }
